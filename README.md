@@ -1,11 +1,17 @@
-<div align="center">
+# Astro With Hrishi
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Production web application with Firebase Firestore, Firebase Authentication, and secure Razorpay payment processing.
 
-  <h1>Built with AI Studio</h2>
+## Architecture
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Frontend**: React 18, Vite, Tailwind CSS, Lucide Icons, Framer Motion.
+- **Backend**: Firebase Firestore, Firebase Auth, Express / Node.js secure server for Razorpay HMAC signature verification and order creation.
+- **Tracking & Analytics**: Google Analytics 4 (GA4) and Meta Pixel with page tracking and e-commerce event telemetry.
+- **Hosting & Deployment**: SPA deployment ready for Netlify and Google Cloud Run.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Payment Flow & Security
 
-</div>
+- Razorpay payment orders are created securely server-side.
+- Payment verification uses cryptographic HMAC SHA256 signatures server-side.
+- Razorpay secret key is kept strictly in server environment variables and never exposed to the client.
+

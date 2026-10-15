@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /about
+Allow: /services
+Allow: /booking
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /product/
+
+# Disallow private user, checkout and administrative routes
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /checkout
+Disallow: /cart
+Disallow: /orders
+Disallow: /my-orders
+Disallow: /auth
+Disallow: /api/
+Disallow: /reset-password
+
+Sitemap: https://astrowithhrishi.com/sitemap.xml
+

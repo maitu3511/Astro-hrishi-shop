@@ -1,0 +1,158 @@
+{
+  "entities": {
+    "Profile": {
+      "title": "Profile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "full_name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "pincode": { "type": "string" },
+        "address": { "type": "string" },
+        "created_at": { "type": "string" },
+        "last_login_at": { "type": "string" }
+      },
+      "required": ["id", "email"]
+    },
+    "UserRole": {
+      "title": "UserRole",
+      "description": "User RBAC role assignment",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "enum": ["admin", "customer"] },
+        "email": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Store item or spiritual remedy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "stock": { "type": "number" },
+        "image_url": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "name", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user_id": { "type": "string" },
+        "total_amount": { "type": "number" },
+        "status": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "user_id", "total_amount", "status"]
+    },
+    "Address": {
+      "title": "Address",
+      "description": "Saved shipping address for customer",
+      "type": "object",
+      "properties": {
+        "user_id": { "type": "string" },
+        "full_name": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "pincode": { "type": "string" },
+        "country": { "type": "string" },
+        "is_default": { "type": "boolean" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["user_id", "address"]
+    },
+    "WishlistItem": {
+      "title": "WishlistItem",
+      "description": "Product saved to customer wishlist",
+      "type": "object",
+      "properties": {
+        "user_id": { "type": "string" },
+        "product_id": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["user_id", "product_id"]
+    },
+    "LoginHistory": {
+      "title": "LoginHistory",
+      "description": "Log of user authentication events",
+      "type": "object",
+      "properties": {
+        "user_id": { "type": "string" },
+        "email": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["user_id", "timestamp"]
+    },
+    "AnalyticsEvent": {
+      "title": "AnalyticsEvent",
+      "description": "Logged e-commerce and site analytics event",
+      "type": "object",
+      "properties": {
+        "event_name": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "path": { "type": "string" },
+        "product_id": { "type": "string" },
+        "product_name": { "type": "string" },
+        "price": { "type": "number" },
+        "order_id": { "type": "string" },
+        "order_number": { "type": "string" },
+        "amount": { "type": "number" },
+        "session_id": { "type": "string" },
+        "device_type": { "type": "string" },
+        "referrer": { "type": "string" },
+        "user_id": { "type": "string" }
+      },
+      "required": ["event_name", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/analytics_events/{eventId}": {
+      "schema": "AnalyticsEvent",
+      "description": "Real-time client and server analytics events"
+    },
+    "/profiles/{userId}": {
+      "schema": "Profile",
+      "description": "Customer profiles and account details"
+    },
+    "/user_roles/{userId}": {
+      "schema": "UserRole",
+      "description": "Role mapping for system admins and moderators"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "E-commerce product catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders and payment records"
+    },
+    "/addresses/{addressId}": {
+      "schema": "Address",
+      "description": "Customer shipping addresses"
+    },
+    "/wishlist_items/{itemId}": {
+      "schema": "WishlistItem",
+      "description": "User saved products"
+    },
+    "/login_history/{historyId}": {
+      "schema": "LoginHistory",
+      "description": "Audit trail for sign ins"
+    }
+  }
+}

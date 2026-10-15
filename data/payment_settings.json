@@ -1,0 +1,12 @@
+{
+  "razorpay_enabled": true,
+  "razorpay_key_id": "rzp_live_TS10rMj18hxvuP",
+  "razorpay_key_secret": "",
+  "razorpay_webhook_secret": "",
+  "upi_enabled": true,
+  "upi_id": "astrowithhrishi@okhdfcbank",
+  "payee_name": "Astro With Hrishi",
+  "cod_enabled": false,
+  "test_mode": false,
+  "updated_at": "2026-10-15T10:00:00.000Z"
+}
